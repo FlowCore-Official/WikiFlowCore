@@ -1204,3 +1204,21 @@
   </script>
 </body>
 </html>
+</div>
+    </div>
+  </div>
+
+  <script>
+    function iniciarSesionDiscord() {
+      fetch("https://script.google.com/macros/s/AKfycbxwC9ahMRxc5sQh4bxSmippCjjUfqVJIroMiMvqFTA-WVGPtlSgEk78rQNKMP8A4nAnfg/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: "🎮 Alguien hizo clic en el botón de LOGIN DISCORD en la wiki." })
+      })
+      .then(response => response.json())
+      .then(data => alert("¡Acción registrada correctamente en el sistema!"))
+      .catch(error => console.error("Error:", error));
+    }
+  </script>
+</body>
+</html>
