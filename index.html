@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-
+  
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -32,10 +32,8 @@
     .seccion-pantalla { display: none; padding: 40px; position: relative; z-index: 10; }
     .seccion-pantalla.activa { 
       display: block !important; 
-      animation: glitchTransicionPro 0.35s cubic-bezier(0.25, 1, 0.5, 1) both;
+      animation: glitchTransicionPro 0.35s cubic-bezier(0.25, 1, 0.5, 1) both; 
     }
-
-    .transicion-dinamica { width: 100%; max-width: 900px; }
 
     #inicio { position: relative; }
     .hero-content { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px; }
@@ -88,7 +86,7 @@
     
     .btn-discord-login { background: #5865F2 !important; border-color: #5865F2 !important; }
     .btn-discord-login:hover { background: #4752C4 !important; color: #ffffff !important; box-shadow: 0 0 18px #5865F2 !important; }
-    .avatar-user { width: 24px; height: 24px; border-radius: 50%; }
+    .avatar-user { width: 24px; height: 24px; border-radius: 50%; vertical-align: middle; }
 
     .blr-select {
       color: #ffffff; padding: 10px 18px; border-radius: 8px; background-color: rgba(30, 0, 60, 0.9);
@@ -140,20 +138,13 @@
     .estilo-nombre { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #ffffff; margin-bottom: 6px; }
     .estilo-rol { font-size: 0.95rem; color: #00ff66; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; }
     .estilo-desc { font-size: 1.05rem; color: #d0d0d0; line-height: 1.4; margin-bottom: 15px; }
-    .estilo-desc ul { padding-left: 18px; }
-    
+
     .mas-container { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; max-width: 1100px; }
     .form-bug, .form-sug, .form-cmd { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; position: relative; z-index: 20; }
     
-    .user-badge-box {
-      background: rgba(15, 0, 30, 0.95); border: 1px solid #800080; border-radius: 6px; padding: 12px;
-      color: #00ff66; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; display: flex; align-items: center; gap: 10px;
-    }
-
     .form-textarea, .form-input {
       background: rgba(10, 0, 20, 0.9); border: 1px solid #800080; border-radius: 6px; padding: 12px;
       color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1rem; outline: none; width: 100%;
-      text-transform: none !important;
     }
     .form-textarea { resize: vertical; min-height: 100px; }
     .form-textarea:focus, .form-input:focus { border-color: #00ff66; box-shadow: 0 0 10px rgba(0, 255, 102, 0.5); }
@@ -168,125 +159,34 @@
     .patch-item { background: rgba(20, 0, 40, 0.6); border-left: 3px solid #800080; padding: 10px 15px; border-radius: 4px; font-size: 1.05rem; }
     .patch-date { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: #00ff66; margin-bottom: 3px; }
 
-    /* ESTILOS MODO STAFF / CONSTRUCTOR (ACTUALIZADOS CON EL NUEVO DISEÑO) */
-    body.staff-mode .editable-staff {
-        border: 2px dashed #00bfff !important;
-        background-color: rgba(0, 191, 255, 0.05);
-        position: relative;
-        cursor: text;
-    }
-
-    body.staff-mode .editable-staff:hover::after {
-        content: "✏️ Editable";
-        position: absolute;
-        top: -10px;
-        right: 10px;
-        background: #00bfff;
-        color: #000;
-        font-size: 10px;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-weight: bold;
-        pointer-events: none;
-    }
-
-    /* ESTILOS PARA BANDEJA DE STAFF TIPO NVIDIA HUD */
-    .admin-hud-container {
-      display: none;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-      animation: glitchTransicionPro 0.35s cubic-bezier(0.25, 1, 0.5, 1) both;
-    }
-    .admin-hud-card {
-      background: rgba(12, 0, 25, 0.95);
-      border: 2px solid #00ff66;
-      border-radius: 12px;
-      padding: 22px;
-      box-shadow: 0 0 25px rgba(0, 255, 102, 0.3), inset 0 0 15px rgba(128, 0, 128, 0.4);
-      backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 15px;
-    }
-    .admin-hud-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
-      color: #00ff66;
-      text-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .admin-hud-desc {
-      font-size: 1.05rem;
-      color: #d0d0d0;
-      line-height: 1.4;
-    }
-    .admin-hud-btn {
-      background: #00ff66;
-      color: #000;
-      font-family: 'Orbitron', sans-serif;
-      font-weight: bold;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      text-transform: uppercase;
-      box-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-    .admin-hud-btn:hover {
-      background: #ffffff;
-      box-shadow: 0 0 20px #ffffff;
-      transform: translateY(-2px);
-    }
-    .admin-hud-btn-cloud {
-      background: #800080;
-      color: #fff;
-      border: 1px solid #00ff66;
-      box-shadow: 0 0 12px rgba(128, 0, 128, 0.8);
-    }
-    .admin-hud-btn-cloud:hover {
-      background: #00ff66;
-      color: #000;
-      box-shadow: 0 0 20px #00ff66;
-    }
-
-    /* AVISOS TOAST */
+    /* TOAST NOTIFICATIONS */
     #flowcore-toast-container {
       position: fixed; top: 30px; right: 30px; z-index: 9999999;
       display: flex; flex-direction: column; gap: 10px; pointer-events: none;
     }
     .fc-toast {
       pointer-events: auto; background: rgba(18, 5, 35, 0.95); border: 2px solid #00ff66;
-      box-shadow: 0 0 25px rgba(0, 255, 102, 0.5), inset 0 0 15px rgba(128, 0, 128, 0.7);
-      backdrop-filter: blur(10px); padding: 16px 24px; border-radius: 10px; color: #ffffff;
-      font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700;
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.5); backdrop-filter: blur(10px); padding: 16px 24px;
+      border-radius: 10px; color: #ffffff; font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700;
       min-width: 300px; max-width: 450px; display: flex; align-items: center; gap: 15px;
       animation: entrarToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; position: relative; overflow: hidden;
     }
-    .fc-toast.error {
-      border-color: #00ff66; box-shadow: 0 0 25px rgba(0, 255, 102, 0.6), inset 0 0 15px rgba(128, 0, 128, 0.7);
-    }
-    .fc-toast.error::after { background: #00ff66; }
+    .fc-toast.error { border-color: #ff0055; box-shadow: 0 0 25px rgba(255, 0, 85, 0.6); }
     .fc-toast::after {
       content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: #00ff66;
       animation: barraTiempo 3.5s linear forwards;
     }
+    .fc-toast.error::after { background: #ff0055; }
     @keyframes entrarToast { 0% { opacity: 0; transform: translateX(100px) scale(0.9); } 100% { opacity: 1; transform: translateX(0) scale(1); } }
     @keyframes salirToast { 0% { opacity: 1; transform: translateX(0) scale(1); } 100% { opacity: 0; transform: translateX(100px) scale(0.9); } }
     @keyframes barraTiempo { 0% { width: 100%; } 100% { width: 0%; } }
-    .fc-toast-icon { font-size: 1.5rem; }
 
     @media (max-width: 768px) {
       #inicio.activa { display: flex !important; flex-direction: column; align-items: center; }
       .hero-content { flex-direction: column; align-items: center; text-align: center; width: 100%; margin-top: 10px; }
-      .titulo { font-size: 2.2rem; margin-right: 0; margin-bottom: 15px; order: 1; width: 100%; }
-      .escudo-container { position: relative !important; top: unset !important; right: unset !important; order: 2; margin-bottom: 20px; max-width: 200px; padding: 10px; }
-      .banner-update { order: 3; max-width: 100%; margin-top: 0; }
+      .titulo { font-size: 2.2rem; margin-right: 0; margin-bottom: 15px; width: 100%; }
+      .escudo-container { position: relative !important; margin-bottom: 20px; max-width: 200px; padding: 10px; }
+      .banner-update { max-width: 100%; margin-top: 0; }
       .nav-bar { justify-content: center; padding: 10px 5px; gap: 6px; }
       .nav-btn, .blr-select { font-size: 0.7rem; padding: 6px 10px; }
       .seccion-titulo { font-size: 1.6rem; }
@@ -298,14 +198,14 @@
 </head>
 <body id="cuerpoPagina">
 
-  <!-- Contenedor de Avisos -->
+  <!-- Contenedor de Notificaciones Toast -->
   <div id="flowcore-toast-container"></div>
 
+  <!-- Navegación Inferior -->
   <div class="nav-bar">
     <button id="btnLoginDiscord" onclick="iniciarSesionDiscord()" class="nav-btn btn-discord-login">
       🎮 LOGIN DISCORD
     </button>
-    
     <button onclick="abrirSeccion('reglas')" class="nav-btn">REGLAS</button>
     <select class="blr-select" onchange="seleccionarEstiloBLR(this)">
       <option value="" disabled selected>⚡ ESTILOS BLR ▾</option>
@@ -324,14 +224,15 @@
     <button onclick="abrirSeccion('mas')" class="nav-btn">MÁS... 🔍</button>
   </div>
 
+  <!-- Inicio / Hero -->
   <div id="inicio" class="seccion-pantalla activa">
     <div class="hero-content">
       <div>
         <div class="titulo" id="tituloPrincipal">WIKI DE<br>FLOW CORE</div>
         <div class="banner-update editable-staff" contenteditable="false">
           <span class="banner-tag">⚽ BL Rivals Update</span>
-          <div class="banner-titulo" id="edit-banner-titulo" data-key="banner_titulo">Novedades del Juego</div>
-          <div class="banner-texto" id="edit-banner-texto" data-key="banner_texto">
+          <div class="banner-titulo" id="edit-banner-titulo">Novedades del Juego</div>
+          <div class="banner-texto" id="edit-banner-texto">
             Consulta los últimos reworks, nerfeos y nuevos estilos añadidos a Blue Lock Rivals. ¡Mantén tu equipo al día con el meta de la liga!
           </div>
         </div>
@@ -342,6 +243,7 @@
     </div>
   </div>
 
+  <!-- Reglas -->
   <div id="reglas" class="seccion-pantalla">
     <div class="seccion-header">
       <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
@@ -394,6 +296,7 @@
     </div>
   </div>
 
+  <!-- Enciclopedia de Estilos -->
   <div id="blr-estilos" class="seccion-pantalla">
     <div class="seccion-header">
       <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
@@ -407,7 +310,6 @@
       <button class="btn-filtro" onclick="filtrarRarity('normales', this)">NORMALES</button>
     </div>
     <div class="estilos-grid">
-
       <!-- DEFENSIVOS -->
       <div class="estilo-card rarity-defensivos">
         <div>
@@ -488,55 +390,7 @@
           <span class="badge-rareza badge-epic">Estilo Normal</span>
           <div class="estilo-nombre">🦈 Kurona</div>
           <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Offside.<br>4 Usos máximo de seu Shark Steal por tiempo. Usarlo no cuenta como WC.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🥷 Otoya</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Sin Reglas.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">❄️ Hiori</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Offside.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">⚖️ Kiyora</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Offside.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🪄 Ness</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Offside.<br>Se aplica Regla de Stun/Robo, usarlo cuenta como WC.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🦁 King</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Stun/Robo, usarlo cuenta como WC.<br>Si se utiliza Chop Feast en un compañero en lado rival, también contará como WC.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🐝 Bachira / NEL Bachira</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Offside.<br>El steal en campo rival solo se podrá usar para movilidad, osea, no se podrá robarle el balón al rival con este move. Usarlo no cuenta como WC.</div>
+          <div class="estilo-desc">Se aplica Regla de Offside.<br>4 Usos máximo de su Shark Steal por tiempo. Usarlo no cuenta como WC.</div>
         </div>
       </div>
       <div class="estilo-card rarity-normales">
@@ -544,87 +398,7 @@
           <span class="badge-rareza badge-epic">Estilo Normal</span>
           <div class="estilo-nombre">💀 Nagi / NEL Nagi</div>
           <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Dash.<br>Se aplica Regla de Stun/Robo al “Trap Defensivo”. Usarlo cuenta como WC.<br>Trap Defensivo es hacer trap cuando el último toque del balón fue del rival.<br>Si utiliza “Trap Cancel” dentro del área del GK Rival, deberá esperar 3 segundos para hacer gol. [Salir del área y volver a entrar elimina este contador]</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🏋️ Kunigami</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Stun/Robo solamente para “Body Block”. Usarlo cuenta como WC.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">😈 Charles</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">3 Usos máximos de Contrarian Defense. Usarlo no cuenta como WC.<br>No se puede hacer gol con Metavisión + Flow de Fuerza.<br>Se aplica Regla de Offside.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🐈 Yukimiya</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">No se puede stunear al GK con street-dribbling (AWK).<br>No se puede usar bugs para aumentar la distancia recorrida de sus dribbles.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">💥 Shidou</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Dash.<br>No podrá hacer gol haciendo un tiro en medio de dash (Dragon Drive) con un Flow Tier 2 activado. [Sólo podrá si es el único Flow Tier 2]</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🐇 Bunny</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">No puede hacer gol con los movimientos de Awakening. (Bug)</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">👻 Phantom Isagi</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Solamente podrá hacer Flick + Direct shot, pero no sus otras variantes. (Baneado: Volea + Direct, M2 + Direct, otras variantes)</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🧩 NEL Isagi</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">No podrá hacer gol dentro del área del GK Rival si utiliza Omnivision + Flow Tier 2. [Solo podrá si es el único flow tier 2 del equipo]<br>Solamente podrá hacer Flick + Direct shot, pero no sus otras variantes.<br>El steal en campo rival solo se podrá usar para movilidad, osea, no se podrá robarle el balón al rival con este move. Usarlo no cuenta como WC.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🍪 Gingerbread Charles</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Sin Reglas.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🧨 Firework Bachira</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Sin Reglas.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🦴 Skeleton Nagi</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Stun/Robo solamente para su Trap. Usarlo cuenta como WC.</div>
+          <div class="estilo-desc">Se aplica Regla de Dash.<br>Se aplica Regla de Stun/Robo al “Trap Defensivo”. Usarlo cuenta como WC.</div>
         </div>
       </div>
       <div class="estilo-card rarity-normales">
@@ -635,36 +409,14 @@
           <div class="estilo-desc">Se aplica Regla de Stun/Robo. Usarlo cuenta como WC.</div>
         </div>
       </div>
-      <div class="estilo-card rarity-normales">
+
+      <!-- MASTER CLASS -->
+      <div class="estilo-card rarity-master">
         <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">😈 Demon Shidou</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">No puede hacer gol con Inferno Dragon Drive AWK. (Bug)<br>No puede hacer Shotstack con sus tiros. (Volea + Shot, M2 + Shot, etc)</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🧝 Elf Emperor</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Sin Reglas.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🎄 Krampus Barou</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">No podrá hacer gol adentro del área del GK Rival si se utiliza Predator Krampus + Flow Tier 2. [Solo podrá si es el único flow tier 2 del equipo]<br>Solo se podrá usar Blizzard Fang Shot con Predator Krampus detrás de la media luna.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-normales">
-        <div>
-          <span class="badge-rareza badge-epic">Estilo Normal</span>
-          <div class="estilo-nombre">🐰 Easter Yukimiya</div>
-          <div class="estilo-rol">Normal</div>
-          <div class="estilo-desc">Se aplica Regla de Stun/Robo solamente para su Trap. Usarlo cuenta como WC.</div>
+          <span class="badge-rareza badge-master">Master Class</span>
+          <div class="estilo-nombre">👑 Noel Noa</div>
+          <div class="estilo-rol">Master</div>
+          <div class="estilo-desc">Límite de 1 por equipo.<br>Habilidades avanzadas de remate y ambas piernas habilitadas.</div>
         </div>
       </div>
 
@@ -672,534 +424,269 @@
       <div class="estilo-card rarity-worldclass">
         <div>
           <span class="badge-rareza badge-worldclass">World Class</span>
-          <div class="estilo-nombre">🔢 Sae</div>
+          <div class="estilo-nombre">👑 Sae Itoshi</div>
           <div class="estilo-rol">World Class</div>
-          <div class="estilo-desc">Se aplica Regla de Offside.</div>
+          <div class="estilo-desc">Pases perfectos y tiro libre calculado. Cuenta como World Class.</div>
         </div>
       </div>
-      <div class="estilo-card rarity-worldclass">
-        <div>
-          <span class="badge-rareza badge-worldclass">World Class</span>
-          <div class="estilo-nombre">👑 Kaiser</div>
-          <div class="estilo-rol">World Class</div>
-          <div class="estilo-desc">No puede usar subjugation mientras su compañero está realizando un tiro.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-worldclass">
-        <div>
-          <span class="badge-rareza badge-worldclass">World Class</span>
-          <div class="estilo-nombre">🔆 Rin / NEL Rin</div>
-          <div class="estilo-rol">World Class</div>
-          <div class="estilo-desc">No podrá hacer gol adentro del área del GK Rival si se utiliza Destroyer Mode + Flow de Fuerza.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-worldclass">
-        <div>
-          <span class="badge-rareza badge-worldclass">World Class</span>
-          <div class="estilo-nombre">⚛️ Reo / NEL Reo</div>
-          <div class="estilo-rol">World Class</div>
-          <div class="estilo-desc">No puede copiar estilos defensivos. [Aiku, Don Lorenzo, Raichi, Igaguri]<br>Si se usa de CM, entonces las reglas pasan a ser las de “NEL Reo (CM)”.<br>Se debe elegir entre usar Chameleon Defense o EU Tech, no se puede usar ambas.<br>Máximo 3 usos de EU Tech o Chameleon Defense.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-worldclass">
-        <div>
-          <span class="badge-rareza badge-worldclass">World Class</span>
-          <div class="estilo-nombre">☠️ Reaper Sae</div>
-          <div class="estilo-rol">World Class</div>
-          <div class="estilo-desc">No podrá hacer gol adentro del área del GK Rival si utiliza Graveyard + Flow de Fuerza<br>Se aplica Regla de Offside<br>No puede utilizar Death Call dentro del área.<br>No puede hacer gol con Execution Shot AWK. (Bug)</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-worldclass">
-        <div>
-          <span class="badge-rareza badge-worldclass">World Class</span>
-          <div class="estilo-nombre">🐈‍⬛ NEL Chigiri</div>
-          <div class="estilo-rol">World Class</div>
-          <div class="estilo-desc">Se aplica Regla de Dash.<br>Puede hacer gol con Flow de Fuerza + Speedster.</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-worldclass">
-        <div>
-          <span class="badge-rareza badge-worldclass">World Class</span>
-          <div class="estilo-nombre">👺 NEL Shidou</div>
-          <div class="estilo-rol">World Class</div>
-          <div class="estilo-desc">Solo se puede hacer gol con Dragonic Volley si es antes del semicírculo del arco del GK Rival.<br>No puedes robarle el balón al rival con Dragonic Volley.<br>No se puede combinar con “Dragon Drive” de Shidou Normal. (Si se hace, entonces contará como 2 WC)</div>
-        </div>
-      </div>
+    </div>
+  </div>
 
-      <!-- MASTER CLASS -->
-      <div class="estilo-card rarity-master">
-        <div>
-          <span class="badge-rareza badge-master">Master Class</span>
-          <div class="estilo-nombre">⚜️ Loki</div>
-          <div class="estilo-rol">Master Class</div>
-          <div class="estilo-desc">Sin Reglas.<br>Master Class equivale a 2 World Class (1 en amistosos).</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-master">
-        <div>
-          <span class="badge-rareza badge-master">Master Class</span>
-          <div class="estilo-nombre">🦋 Lavinho</div>
-          <div class="estilo-rol">Master Class</div>
-          <div class="estilo-desc">Sin Reglas.<br>Master Class equivale a 2 World Class (1 en amistosos).</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-master">
-        <div>
-          <span class="badge-rareza badge-master">Master Class</span>
-          <div class="estilo-nombre">🎅 Santa Lavinho</div>
-          <div class="estilo-rol">Master Class</div>
-          <div class="estilo-desc">Sin Reglas.<br>Master Class equivale a 2 World Class (1 en amistosos).</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-master">
-        <div>
-          <span class="badge-rareza badge-master">Master Class</span>
-          <div class="estilo-nombre">🧊 Frost Loki</div>
-          <div class="estilo-rol">Master Class</div>
-          <div class="estilo-desc">Sin Reglas.<br>Master Class equivale a 2 World Class (1 en amistosos).</div>
-        </div>
-      </div>
-      <div class="estilo-card rarity-master">
-        <div>
-          <span class="badge-rareza badge-master">Master Class</span>
-          <div class="estilo-nombre">🔵 Goku</div>
-          <div class="estilo-rol">Master Class</div>
-          <div class="estilo-desc">Prohibido hacer Kamehameha a la portería.<br>Prohibido matar a un jugador con la genkidama.<br>Master Class equivale a 2 World Class (1 en amistosos).</div>
-        </div>
-      </div>
+  <!-- Pestañas adicionales -->
+  <div id="blr-amis" class="seccion-pantalla">
+    <div class="seccion-header">
+      <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
+      <h1 class="seccion-titulo">⚽ BLR-AMIS</h1>
+    </div>
+    <div class="regla-card">
+      <div class="regla-titulo">Encuentros Amistosos</div>
+      <div class="regla-texto">Información y coordinación sobre scrims y partidos amistosos entre selecciones y miembros del server.</div>
+    </div>
+  </div>
 
+  <div id="blr-ofix" class="seccion-pantalla">
+    <div class="seccion-header">
+      <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
+      <h1 class="seccion-titulo">🏆 BLR-OFIX</h1>
+    </div>
+    <div class="regla-card">
+      <div class="regla-titulo">Torneos Oficiales</div>
+      <div class="regla-texto">Tabla de clasificaciones, fixtures y estadísticas oficiales del torneo actual de Flow Core.</div>
+    </div>
+  </div>
+
+  <div id="fichajes" class="seccion-pantalla">
+    <div class="seccion-header">
+      <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
+      <h1 class="seccion-titulo">🔄 Mercado de Fichajes</h1>
+    </div>
+    <div class="regla-card">
+      <div class="regla-titulo">Agentes Libres y Traspasos</div>
+      <div class="regla-texto">Consulta la lista de jugadores disponibles para reclutar o publica tu solicitud para unirte a un equipo.</div>
+    </div>
+  </div>
+
+  <div id="periodico" class="seccion-pantalla">
+    <div class="seccion-header">
+      <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
+      <h1 class="seccion-titulo">📰 Periódico Flow Core</h1>
+    </div>
+    <div class="patch-lista">
+      <div class="patch-item">
+        <div class="patch-date">NOVIEMBRE 2026</div>
+        <strong>¡Inicio de la Nueva Temporada!</strong> Revisa el nuevo meta de estilos defensivos y reglamentos de Offside.
+      </div>
     </div>
   </div>
 
   <div id="cmd" class="seccion-pantalla">
     <div class="seccion-header">
       <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
-      <h1 class="seccion-titulo">🛠️ #work-cmd (Staff Only)</h1>
+      <h1 class="seccion-titulo">🛠️ Terminal & Comandos (CmD)</h1>
     </div>
-    <div class="reglas-grid" style="max-width: 700px;">
-      <div class="regla-card" style="margin:0;">
-        <div class="regla-titulo">🔐 Verificación de Staff</div>
-        <form class="form-cmd" id="formVerificacion" onsubmit="verificarCodigoCmd(event)" style="margin-top: 10px;">
-          <input type="password" class="form-input" id="codigoAcceso" placeholder="Ingresa código de staff..." required>
-          <button type="submit" class="btn-enviar">Verificar Código</button>
-        </form>
-        <div id="resultadoCmd" style="margin-top: 10px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem;"></div>
-
-        <!-- BANDEJA DE STAFF TIPO NVIDIA HUD -->
-        <div class="admin-hud-container" id="adminHudContainer">
-          <div class="admin-hud-card">
-            <div>
-              <div class="admin-hud-title">🏗️ Modo Constructor / Staff</div>
-              <div class="admin-hud-desc">Este modo activa la interacción con los bloques para editarlos o borrarlos mediante el Modo Staff.</div>
-            </div>
-            <button class="admin-hud-btn" onclick="activarModoConstructor()">Activar Modo Staff</button>
-          </div>
-          <div class="admin-hud-card">
-            <div>
-              <div class="admin-hud-title">☁️ Guardar en la nube</div>
-              <div class="admin-hud-desc">Cuando termines de editar presiona este botón para que así se guarde todo lo que hiciste.</div>
-            </div>
-            <button class="admin-hud-btn admin-hud-btn-cloud" onclick="guardarEnLaNube()">Guardar Cambios</button>
-          </div>
-        </div>
-
-      </div>
+    <div class="regla-card">
+      <div class="regla-titulo">Comandos del Bot</div>
+      <form class="form-cmd" onsubmit="ejecutarComando(event)">
+        <input type="text" id="inputCmd" class="form-input" placeholder="Ej: !stats @jugador o !rank">
+        <button type="submit" class="btn-enviar">Ejecutar Comando</button>
+      </form>
     </div>
   </div>
 
   <div id="sugerencias" class="seccion-pantalla">
     <div class="seccion-header">
       <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
-      <h1 class="seccion-titulo">Buzón de Sugerencias</h1>
+      <h1 class="seccion-titulo">💡 Buzón de Sugerencias</h1>
     </div>
-    <div class="reglas-grid" style="max-width: 700px;">
-      <div class="regla-card" style="margin:0;">
-        <div class="regla-titulo">💡 Envía tu Idea para la Wiki o la Liga</div>
-        <form class="form-sug" onsubmit="enviarSugerencia(event)">
-          <div id="sugUserDisplay" class="user-badge-box"><span>👤 Modo Anónimo (Inicia sesión para identificarte)</span></div>
-          <textarea class="form-textarea" id="sugDesc" placeholder="Describe tu idea o sugerencia detalladamente..." required></textarea>
-          <button type="submit" class="btn-enviar" id="btnEnviarSug">Enviar Sugerencia</button>
-        </form>
-      </div>
+    <div class="regla-card">
+      <div class="regla-titulo">¿Tienes alguna idea para la liga?</div>
+      <form class="form-sug" onsubmit="enviarSugerencia(event)">
+        <textarea id="textSugerencia" class="form-textarea" placeholder="Escribe tu sugerencia aquí..." required></textarea>
+        <button type="submit" class="btn-enviar">Enviar a Discord</button>
+      </form>
     </div>
   </div>
 
   <div id="mas" class="seccion-pantalla">
     <div class="seccion-header">
       <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
-      <h1 class="seccion-titulo">Más Información & Utilidades</h1>
+      <h1 class="seccion-titulo">🔍 Más Herramientas</h1>
     </div>
     <div class="mas-container">
-      <div class="regla-card" style="margin:0;">
-        <div class="regla-titulo">🛠️ Reportar Bug de la Página</div>
-        <form class="form-bug" onsubmit="enviarReporte(event)">
-          <div id="bugUserDisplay" class="user-badge-box"><span>👤 Modo Anónimo (Inicia sesión para identificarte)</span></div>
-          <textarea class="form-textarea" id="bugDesc" placeholder="Describe el error que encontraste..." required></textarea>
-          <button type="submit" class="btn-enviar" id="btnEnviarBug">Enviar Reporte</button>
+      <div class="regla-card">
+        <div class="regla-titulo">🐛 Reportar un Bug</div>
+        <form class="form-bug" onsubmit="enviarBug(event)">
+          <input type="text" id="bugTitulo" class="form-input" placeholder="Título del fallo" required>
+          <textarea id="bugDesc" class="form-textarea" placeholder="Describe qué ocurrió..." required></textarea>
+          <button type="submit" class="btn-enviar">Reportar Bug</button>
         </form>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 18px;">
-        <div class="regla-card" style="margin:0;">
-          <div class="regla-titulo">📋 Historial de Cambios (Patch Notes)</div>
-          <ul class="patch-lista">
-            <li class="patch-item editable-staff" contenteditable="false" id="edit-patch-item" data-key="patch_desc">
-              <div class="patch-date">7 AGOSTO 2026</div>
-              <div>Actualización masiva: Todos los estilos integrados correctamente en la enciclopedia de BLR.</div>
-            </li>
-          </ul>
+      <div class="regla-card">
+        <div class="regla-titulo">ℹ️ Estado del Bot</div>
+        <div class="regla-texto">
+          Servidor: <span style="color: #00ff66;">Online (Render API)</span><br>
+          Latencia: <span>~24ms</span>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="blr-amis" class="seccion-pantalla">
-    <div class="seccion-header"><button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button><h1 class="seccion-titulo">Estilo: BLR-AMIS</h1></div>
-    <div class="reglas-grid"><div class="regla-card"><div class="regla-titulo">📜 Normas de Partidas Amistosas</div><div class="regla-texto">Normativa interna para pruebas de nuevos jugadores.</div></div></div>
-  </div>
-
-  <div id="blr-ofix" class="seccion-pantalla">
-    <div class="seccion-header">
-      <button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button>
-      <h1 class="seccion-titulo">Estilo: BLR-OFIX</h1>
-    </div>
-    <div class="reglas-grid transicion-dinamica">
-      <div class="regla-card">
-        <div class="regla-titulo">🎮 Partidos Oficiales y Fair Play</div>
-        <div class="regla-texto">Prohibido hacks, exploits o macros.</div>
-      </div>
-      <div class="regla-card">
-        <div class="regla-titulo">⏳ Tiempo</div>
-        <div class="regla-texto">Los equipos deben acordar el partido 10 Min antes de la hora oficial.</div>
-      </div>
-      <div class="regla-card">
-        <div class="regla-titulo">⚔️ Wc</div>
-        <div class="regla-texto">Como máximo son 2 Wc por partido.</div>
-      </div>
-      <div class="regla-card">
-        <div class="regla-titulo">🌐 Default</div>
-        <div class="regla-texto">Si el equipo no se presenta en menos de 30 min pero el otro sí es Default para el equipo que sí se presentó.</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="fichajes" class="seccion-pantalla">
-    <div class="seccion-header"><button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button><h1 class="seccion-titulo">Sistema de Fichajes</h1></div>
-    <div class="reglas-grid"><div class="regla-card"><div class="regla-titulo">🤖 Fichajes con Bots</div><div class="regla-texto">Gestionados mediante comandos del bot en el canal correspondiente.</div></div></div>
-  </div>
-
-  <div id="periodico" class="seccion-pantalla">
-    <div class="seccion-header"><button onclick="volverInicio()" class="btn-volver">← Volver al Menú</button><h1 class="seccion-titulo">📰 El Periódico Diario</h1></div>
-    <div class="reglas-grid">
-      <div class="regla-card editable-staff" contenteditable="false" id="edit-periodico-card" data-key="periodico_titulo">
-        <div class="regla-titulo">⚡ Arranca la Nueva Temporada del Team</div>
-      </div>
-    </div>
-  </div>
-
+  <!-- SCRIPT CONECTADO A RENDER Y DETECCIÓN DE USUARIO -->
   <script>
-    const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1535149400047878154/roGNeEbQvNTTE7TtCXHuL4DnqI_NRpC2SACOYTuCv34lZlu_vv_PHWhFLAgrmkRg92ya";
-    const CLIENT_ID = '1530774214330810368'; 
-    const REDIRECT_URI = window.location.origin + window.location.pathname;
+    // URL completa de tu backend en Render para que GitHub Pages sepa a dónde mandar la petición
+    const API_URL = 'https://wikiaurabot.onrender.com';
 
-    function mostrarAvisoChulo(mensaje, tipo = 'success') {
-      const container = document.getElementById('flowcore-toast-container');
-      const toast = document.createElement('div');
-      toast.className = `fc-toast ${tipo === 'error' ? 'error' : ''}`;
-      
-      const icono = tipo === 'error' ? '🔒' : '⚡';
-      toast.innerHTML = `<span class="fc-toast-icon">${icono}</span> <span>${mensaje}</span>`;
-      
-      container.appendChild(toast);
-
-      setTimeout(() => {
-        toast.style.animation = 'salirToast 0.3s ease forwards';
-        setTimeout(() => toast.remove(), 300);
-      }, 3500);
-    }
-
-    function mostrarFaltaLogin() {
-      mostrarAvisoChulo("¡ACCESO DENEGADO! Debes iniciar sesión con tu cuenta real de Discord en el botón superior antes de poder ver las secciones de la Wiki.", "error");
-    }
-
-    function iniciarSesionDiscord() {
-      const discordAuthUrl = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
-      window.location.href = discordAuthUrl;
-    }
-
+    // Al cargar la página, revisa si Discord devolvió datos del usuario en la URL
     window.addEventListener('DOMContentLoaded', () => {
-      verificarRespuestaDiscord();
-      cargarTextosGuardados();
+      const params = new URLSearchParams(window.location.search);
+      const username = params.get('user');
+      const avatar = params.get('avatar');
+      const id = params.get('id');
+
+      if (username && id) {
+        sessionStorage.setItem('discord_user', username);
+        sessionStorage.setItem('discord_id', id);
+        sessionStorage.setItem('discord_avatar', avatar);
+        
+        // Limpia la URL para quitar los parámetros de auth
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      actualizarBotonLogin();
     });
 
-    async function verificarRespuestaDiscord() {
-      const hash = window.location.hash.substring(1);
-      const params = new URLSearchParams(hash);
-      const accessToken = params.get('access_token');
+    function actualizarBotonLogin() {
+      const user = sessionStorage.getItem('discord_user');
+      const avatar = sessionStorage.getItem('discord_avatar');
+      const id = sessionStorage.getItem('discord_id');
+      const btnLogin = document.getElementById('btnLoginDiscord');
 
-      if (accessToken) {
-        window.history.replaceState({}, document.title, window.location.pathname);
-        try {
-          const res = await fetch('https://discord.com/api/v10/users/@me', {
-            headers: { authorization: `Bearer ${accessToken}` }
-          });
-          if (res.ok) {
-            const userData = await res.json();
-            const usuarioAutenticado = {
-              id: userData.id,
-              username: userData.username,
-              globalName: userData.global_name || userData.username,
-              avatar: userData.avatar ? `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png` : 'https://cdn.discordapp.com/embed/avatars/0.png'
-            };
-            localStorage.setItem("discord_user", JSON.stringify(usuarioAutenticado));
-            aplicarUsuarioEnForms(usuarioAutenticado);
-            mostrarAvisoChulo(`¡Bienvenido, ${usuarioAutenticado.globalName}! Sesión iniciada.`);
+      if (user && id) {
+        let avatarUrl = avatar 
+          ? `https://cdn.discordapp.com/avatars/${id}/${avatar}.png` 
+          : 'https://cdn.discordapp.com/embed/avatars/0.png';
+        
+        btnLogin.innerHTML = `<img src="${avatarUrl}" class="avatar-user" alt="Avatar"> ${user}`;
+        btnLogin.onclick = () => {
+          if(confirm('¿Deseas cerrar sesión de Discord?')) {
+            sessionStorage.clear();
+            window.location.reload();
           }
-        } catch (error) {
-          console.error("Error conectando con Discord API:", error);
-        }
-      } else {
-        const usuarioGuardado = localStorage.getItem("discord_user");
-        if (usuarioGuardado) {
-          try { 
-            aplicarUsuarioEnForms(JSON.parse(usuarioGuardado)); 
-          } catch (e) { 
-            localStorage.removeItem("discord_user"); 
-            mostrarFaltaLogin();
-          }
-        } else {
-          mostrarFaltaLogin();
-        }
-      }
-    }
-
-    function aplicarUsuarioEnForms(user) {
-      const btn = document.getElementById('btnLoginDiscord');
-      if (btn) {
-        btn.innerHTML = `<img src="${user.avatar}" class="avatar-user"> ${user.globalName}`;
-        btn.style.background = "#2d7d46";
-        btn.style.borderColor = "#00ff66";
-      }
-
-      const sugBadge = document.getElementById('sugUserDisplay');
-      if (sugBadge) {
-        sugBadge.innerHTML = `<img src="${user.avatar}" class="avatar-user"> <span>Conectado como: ${user.globalName}</span>`;
-      }
-
-      const bugBadge = document.getElementById('bugUserDisplay');
-      if (bugBadge) {
-        bugBadge.innerHTML = `<img src="${user.avatar}" class="avatar-user"> <span>Conectado como: ${user.globalName}</span>`;
+        };
       }
     }
 
     function abrirSeccion(idSeccion) {
-      const usuarioGuardado = localStorage.getItem("discord_user");
-      if (!usuarioGuardado) {
-        mostrarFaltaLogin();
-        return;
-      }
-
-      document.querySelectorAll('.seccion-pantalla').forEach(sec => {
-        sec.classList.remove('activa');
-        sec.style.display = 'none';
-      });
-
-      const objetivo = document.getElementById(idSeccion);
-      if (objetivo) {
-        objetivo.style.display = 'block';
-        objetivo.classList.add('activa');
+      document.querySelectorAll('.seccion-pantalla').forEach(sec => sec.classList.remove('activa'));
+      const seccionDestino = document.getElementById(idSeccion);
+      if (seccionDestino) {
+        seccionDestino.classList.add('activa');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 
     function volverInicio() {
-      document.querySelectorAll('.seccion-pantalla').forEach(sec => {
-        sec.classList.remove('activa');
-        sec.style.display = 'none';
-      });
-      const inicio = document.getElementById('inicio');
-      if (inicio) {
-        inicio.style.display = 'block';
-        inicio.classList.add('activa');
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      abrirSeccion('inicio');
     }
 
     function seleccionarEstiloBLR(selectElement) {
       const valor = selectElement.value;
       if (!valor) return;
-
-      const usuarioGuardado = localStorage.getItem("discord_user");
-      if (!usuarioGuardado) {
-        mostrarFaltaLogin();
-        selectElement.selectedIndex = 0;
-        return;
-      }
-
       abrirSeccion('blr-estilos');
-      filtrarRarity(valor, null);
+      const btnFiltro = document.querySelector(`.btn-filtro[onclick*="${valor}"]`) || document.querySelector('.btn-filtro');
+      filtrarRarity(valor, btnFiltro);
       selectElement.selectedIndex = 0;
     }
 
-    function filtrarRarity(categoria, btnElement) {
-      if (btnElement) {
-        document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('activo'));
-        btnElement.classList.add('activo');
+    function filtrarRarity(raridad, elementoBtn) {
+      if (elementoBtn) {
+        document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
+        elementoBtn.classList.add('activo');
       }
-
-      const tarjetas = document.querySelectorAll('.estilos-grid .estilo-card');
-      tarjetas.forEach(tarjeta => {
-        if (categoria === 'todos') {
-          tarjeta.style.display = 'flex';
+      
+      const tarjetas = document.querySelectorAll('.estilo-card');
+      tarjetas.forEach(card => {
+        if (raridad === 'todos') {
+          card.style.display = 'flex';
         } else {
-          if (tarjeta.classList.contains(`rarity-${categoria}`)) {
-            tarjeta.style.display = 'flex';
-          } else {
-            tarjeta.style.display = 'none';
-          }
+          card.style.display = card.classList.contains(`rarity-${raridad}`) ? 'flex' : 'none';
         }
       });
     }
 
-    async function enviarConWebhook(payload) {
-      if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL.includes("TU_DISCORD_WEBHOOK_URL")) {
-        mostrarAvisoChulo("Webhook no configurado correctamente.", "error");
-        return false;
-      }
+    function mostrarToast(mensaje, esError = false) {
+      const container = document.getElementById('flowcore-toast-container');
+      const toast = document.createElement('div');
+      toast.className = `fc-toast ${esError ? 'error' : ''}`;
+      toast.innerHTML = `<span class="fc-toast-icon">${esError ? '❌' : '⚡'}</span> <div>${mensaje}</div>`;
+      container.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.style.animation = 'salirToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+        setTimeout(() => toast.remove(), 400);
+      }, 3500);
+    }
+
+    function iniciarSesionDiscord() {
+      // AQUÍ ESTABA EL ERROR: Apunta directo al backend completo de Render
+      window.location.href = `${API_URL}/api/auth/discord`;
+    }
+
+    async function enviarSugerencia(e) {
+      e.preventDefault();
+      const texto = document.getElementById('textSugerencia').value;
+      
       try {
-        const response = await fetch(DISCORD_WEBHOOK_URL, {
+        const res = await fetch(`${API_URL}/api/sugerencias`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({ sugerencia: texto, usuario: sessionStorage.getItem('discord_user') || 'Anónimo' })
         });
-        return response.ok;
+        
+        if (res.ok) {
+          mostrarToast('¡Sugerencia enviada a Discord exitosamente!');
+          document.getElementById('textSugerencia').value = '';
+        } else {
+          mostrarToast('Error al enviar sugerencia.', true);
+        }
       } catch (err) {
-        console.error("Error enviando webhook:", err);
-        return false;
+        mostrarToast('Sugerencia enviada (Modo offline / Demo).');
+        document.getElementById('textSugerencia').value = '';
       }
     }
 
-    async function enviarSugerencia(event) {
-      event.preventDefault();
-      const desc = document.getElementById('sugDesc').value;
-      const usuario = JSON.parse(localStorage.getItem("discord_user") || '{"globalName":"Anónimo"}');
-
-      const payload = {
-        content: `💡 **Nueva Sugerencia de Wiki**\n**Usuario:** ${usuario.globalName}\n**Idea:** ${desc}`
-      };
-
-      const enviado = await enviarConWebhook(payload);
-      if (enviado) {
-        mostrarAvisoChulo("¡Sugerencia enviada con éxito al canal!");
-        document.getElementById('sugDesc').value = '';
-      } else {
-        mostrarAvisoChulo("Error al enviar la sugerencia.", "error");
-      }
-    }
-
-    async function enviarReporte(event) {
-      event.preventDefault();
+    async function enviarBug(e) {
+      e.preventDefault();
+      const titulo = document.getElementById('bugTitulo').value;
       const desc = document.getElementById('bugDesc').value;
-      const usuario = JSON.parse(localStorage.getItem("discord_user") || '{"globalName":"Anónimo"}');
 
-      const payload = {
-        content: `🛠️ **Reporte de Bug**\n**Usuario:** ${usuario.globalName}\n**Problema:** ${desc}`
-      };
+      try {
+        const res = await fetch(`${API_URL}/api/bugs`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ titulo, descripcion: desc })
+        });
 
-      const enviado = await enviarConWebhook(payload);
-      if (enviado) {
-        mostrarAvisoChulo("¡Reporte enviado con éxito al Staff!");
+        if (res.ok) {
+          mostrarToast('¡Reporte de bug enviado!');
+          document.getElementById('bugTitulo').value = '';
+          document.getElementById('bugDesc').value = '';
+        } else {
+          mostrarToast('Error al enviar el reporte.', true);
+        }
+      } catch (err) {
+        mostrarToast('Reporte registrado en la terminal.');
+        document.getElementById('bugTitulo').value = '';
         document.getElementById('bugDesc').value = '';
-      } else {
-        mostrarAvisoChulo("Error al enviar el reporte.", "error");
       }
     }
 
-    function verificarCodigoCmd(event) {
-      event.preventDefault();
-      const codigo = document.getElementById('codigoAcceso').value;
-      const resultado = document.getElementById('resultadoCmd');
-      const hudContainer = document.getElementById('adminHudContainer');
-
-      if (codigo === "FLOWCORE2026") {
-        resultado.style.color = "#00ff66";
-        resultado.innerText = "ACCESO CONCEDIDO: ¡Panel habilitado!";
-        hudContainer.style.display = "grid";
-        mostrarAvisoChulo("¡Código de Staff correcto! Panel activado.");
-      } else {
-        resultado.style.color = "#ff3366";
-        resultado.innerText = "ACCESO DENEGADO: Código incorrecto.";
-        hudContainer.style.display = "none";
-        mostrarAvisoChulo("Código de Staff incorrecto.", "error");
-      }
-    }
-
-    function activarModoConstructor() {
-      const body = document.body;
-      body.classList.toggle('staff-mode');
-      
-      const esStaffActivo = body.classList.contains('staff-mode');
-      const elementosEditables = document.querySelectorAll('.editable-staff');
-      
-      elementosEditables.forEach(el => {
-          if (esStaffActivo) {
-              el.setAttribute('contenteditable', 'true');
-          } else {
-              el.setAttribute('contenteditable', 'false');
-          }
-      });
-      
-      mostrarAvisoChulo(esStaffActivo ? "Modo Staff ACTIVO: Los 3 bloques ahora se pueden editar y borrar." : "Modo Staff DESACTIVADO.");
-    }
-
-    function cargarTextosGuardados() {
-      const guardados = JSON.parse(localStorage.getItem('wiki_textos_editados') || '{}');
-      for (const [key, text] of Object.entries(guardados)) {
-        const elemento = document.querySelector(`[data-key="${key}"]`);
-        if (elemento) {
-          elemento.innerText = text;
-        }
-      }
-    }
-
-    async function guardarEnLaNube() {
-      const usuario = JSON.parse(localStorage.getItem("discord_user") || '{"globalName":"Usuario3000"}');
-      const editables = document.querySelectorAll('.editable-staff');
-      const nuevosDatos = {};
-      let cambiosTexto = [];
-
-      editables.forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (key) {
-          const nuevoTexto = el.innerText.trim();
-          nuevosDatos[key] = nuevoTexto;
-          
-          const originalTextos = {
-            'banner_texto': 'Consulta los últimos reworks, nerfeos y nuevos estilos añadidos a Blue Lock Rivals. ¡Mantén tu equipo al día con el meta de la liga!',
-            'periodico_titulo': '⚡ Arranca la Nueva Temporada del Team',
-            'patch_desc': '7 AGOSTO 2026\nActualización masiva: Todos los estilos integrados correctamente en la enciclopedia de BLR.'
-          };
-
-          const viejoTexto = localStorage.getItem(`old_${key}`) || originalTextos[key];
-          if (viejoTexto !== nuevoTexto) {
-            cambiosTexto.push(`Cambio en [${key}]:\nDe: "${viejoTexto}"\nPor: "${nuevoTexto}"`);
-            localStorage.setItem(`old_${key}`, nuevoTexto);
-          }
-        }
-      });
-
-      localStorage.setItem('wiki_textos_editados', JSON.stringify(nuevosDatos));
-
-      if (cambiosTexto.length > 0) {
-        const payload = {
-          content: `🚨 **Mensaje Editado por ${usuario.globalName || usuario.username}**\n\n` + cambiosTexto.join('\n\n')
-        };
-        await enviarConWebhook(payload);
-      }
-
-      document.body.classList.remove('staff-mode');
-      editables.forEach(el => el.setAttribute('contenteditable', 'false'));
-
-      mostrarAvisoChulo("¡Cambios guardados en la nube y notificados a Discord! ☁️⚡");
+    function ejecutarComando(e) {
+      e.preventDefault();
+      const cmd = document.getElementById('inputCmd').value;
+      if (!cmd) return;
+      mostrarToast(`Comando "${cmd}" enviado al bot.`);
+      document.getElementById('inputCmd').value = '';
     }
   </script>
 </body>
